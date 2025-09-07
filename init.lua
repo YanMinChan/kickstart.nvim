@@ -85,7 +85,8 @@ P.S. You can delete this when you're done too. It's your config now! :)
 --]]
 
 -- Some of my own spacing setup
--- require 'custom.formats'
+-- Disable because might cause issue with guess-indent
+--require 'custom.formats'
 
 -- Set <space> as the leader key
 -- See `:help mapleader`
@@ -252,9 +253,21 @@ require('lazy').setup({
   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
   {
     'NMAC427/guess-indent.nvim',
-    opts = {},
+    opts = {
+      auto_cmd = false,
+      override_editorconfig = false,
+      on_tab_options = {
+        ["expandtab"] = false,
+      },
+      on_space_options = {
+        ["expandtab"] = true,
+        ["tabstop"] = "detected",
+        ["softtabstop"] = "detected",
+        ["shiftwidth"] = "detected",
+      },
+    },
     -- Uncomment to disable guess-indent
-    -- enabled = false,
+    --enabled = false,
   }, -- Detect tabstop and shiftwidth automatically
 
   -- NOTE: Plugins can also be added by using a table,
@@ -267,8 +280,7 @@ require('lazy').setup({
   -- Alternatively, use `config = function() ... end` for full control over the configuration.
   -- If you prefer to call `setup` explicitly, use:
   --    {
-  --        'lewis6991/gitsign
-  --        s.nvim',
+  --        'lewis6991/gitsigns.nvim',
   --        config = function()
   --            require('gitsigns').setup({
   --                -- Your gitsigns configuration here
@@ -509,7 +521,7 @@ require('lazy').setup({
       },
 
       -- Allows extra capabilities provided by blink.cmp
-        'saghen/blink.cmp',
+      'saghen/blink.cmp',
     },
     config = function()
       -- Brief aside: **What is LSP?**
