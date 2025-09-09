@@ -86,7 +86,7 @@ P.S. You can delete this when you're done too. It's your config now! :)
 
 -- Some of my own spacing setup
 -- Disable because might cause issue with guess-indent
---require 'custom.formats'
+require 'custom.formats'
 
 -- Set <space> as the leader key
 -- See `:help mapleader`
@@ -516,8 +516,9 @@ require('lazy').setup({
           progress = {
             -- suppress new messages in insert mode
             suppress_on_insert = true,
-          }
-        }
+          },
+        },
+        enabled = false,
       },
 
       -- Allows extra capabilities provided by blink.cmp
