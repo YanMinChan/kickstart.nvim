@@ -84,8 +84,9 @@ I hope you enjoy your Neovim journey,
 P.S. You can delete this when you're done too. It's your config now! :)
 --]]
 
--- Some of my own spacing setup
--- Disable because might cause issue with guess-indent
+-- Some of my own setup
+vim.g.python3_host_prog=vim.fn.expand("~/.virtualenvs/neovim/Scripts/python.exe")
+
 require 'custom.formats'
 
 -- Set <space> as the leader key
@@ -211,6 +212,10 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
+
+-- Custom autocommands
+--  Activate Quarto in md files
+require 'custom.autocmds.quarto-md'
 
 -- Highlight when yanking (copying) text
 --  Try it with `yap` in normal mode
@@ -1019,7 +1024,8 @@ require('lazy').setup({
   --    This is the easiest way to modularize your config.
   --
   --  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
-  { import = 'custom.plugins' },
+  --  { import = 'custom.plugins' },
+  require 'custom.plugins.init',
   --
   -- For additional information with loading, sourcing and examples see `:help lazy.nvim-🔌-plugin-spec`
   -- Or use telescope!
