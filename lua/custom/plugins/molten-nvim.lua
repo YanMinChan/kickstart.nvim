@@ -20,20 +20,23 @@ return {
       -- keymaps
       vim.keymap.set('n', '<localleader>mi', ":MoltenInit<CR>", { desc = "initialise molten", silent = true })
 
-      vim.keymap.set("n", "<localleader>me", ":MoltenEvaluateOperator<CR>", { desc = "evaluate operator", silent = true })
+      --vim.keymap.set("n", "<localleader>me", ":MoltenEvaluateOperator<CR>", { desc = "evaluate operator", silent = true })
       vim.keymap.set("n", "<localleader>mo", ":noautocmd MoltenEnterOutput<CR>", { desc = "open output window", silent = true })
+      vim.keymap.set("n", "<localleader>mh", ":MoltenHideOutput<CR>", { desc = "close output window", silent = true })
 
-      vim.keymap.set("n", "<localleader>mr", ":MoltenReevaluateCell<CR>", { desc = "re-eval cell", silent = true })
-      vim.keymap.set("v", "<localleader>mv", ":<C-u>MoltenEvaluateVisual<CR>gv", { desc = "execute visual selection", silent = true })
-      vim.keymap.set("n", "<localleader>mc", ":MoltenHideOutput<CR>", { desc = "close output window", silent = true })
-      vim.keymap.set("n", "<localleader>md", ":MoltenDelete<CR>", { desc = "delete Molten cell", silent = true })
+      --vim.keymap.set("n", "<localleader>mr", ":MoltenReevaluateCell<CR>", { desc = "re-eval cell", silent = true })
+      --vim.keymap.set("v", "<localleader>mv", ":<C-u>MoltenEvaluateVisual<CR>gv", { desc = "execute visual selection", silent = true })
+      --vim.keymap.set("n", "<localleader>md", ":MoltenDelete<CR>", { desc = "delete Molten cell", silent = true })
+
+      -- Insert fenced code block
+      vim.keymap.set("n", "<leader>mc", "o```python<Esc>o```<Esc>O", { desc = "Insert python code fence" })
 
       local runner = require("quarto.runner")
-      vim.keymap.set("n", "<localleader>rc", runner.run_cell,  { desc = "run cell", silent = true })
-      vim.keymap.set("n", "<localleader>ra", runner.run_all,   { desc = "run all cells", silent = true })
-      vim.keymap.set("n", "<localleader>rl", runner.run_line,  { desc = "run line", silent = true })
-      vim.keymap.set("v", "<localleader>rv",  runner.run_range, { desc = "run visual range", silent = true })
-      vim.keymap.set("n", "<localleader>rA", function()
+      vim.keymap.set("n", "<localleader>mr", runner.run_cell,  { desc = "run cell", silent = true })
+      vim.keymap.set("n", "<localleader>ma", runner.run_all,   { desc = "run all cells", silent = true })
+      --vim.keymap.set("n", "<localleader>rl", runner.run_line,  { desc = "run line", silent = true })
+      --vim.keymap.set("v", "<localleader>rv",  runner.run_range, { desc = "run visual range", silent = true })
+      vim.keymap.set("n", "<localleader>mA", function()
         runner.run_all(true)
       end, { desc = "run all cells of all languages", silent = true })
     end,
