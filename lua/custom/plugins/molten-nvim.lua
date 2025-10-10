@@ -1,6 +1,6 @@
 return {
   {
-    "benlubas/molten-nvim",
+    "YanMinChan/molten-nvim",
     version = "1.8.5", -- use version <2.0.0 to avoid breaking changes
     dependencies = { "willothy/wezterm.nvim" },
     build = ":UpdateRemotePlugins",

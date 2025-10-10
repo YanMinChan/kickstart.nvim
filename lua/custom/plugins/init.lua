@@ -14,11 +14,11 @@ return {
   -- [[ tiny-inline-diagnostic ]] wrap diagnostic
   require 'custom.plugins.tiny-inline',
   -- [[ wezterm-nvim ]]
-  require 'custom.plugins.wezterm-nvim',
+  -- require 'custom.plugins.wezterm-nvim',
   -- [[ quarto-nvim ]]
-  require 'custom.plugins.quarto-nvim',
+  -- require 'custom.plugins.quarto-nvim',
   -- [[ jupytext ]]
-  require 'custom.plugins.jupytext-nvim',
+  -- require 'custom.plugins.jupytext-nvim',
   -- [[ molten-nvim ]]
-  require 'custom.plugins.molten-nvim',
+  -- require 'custom.plugins.molten-nvim',
 }

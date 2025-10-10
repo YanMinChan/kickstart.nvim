@@ -85,7 +85,7 @@ P.S. You can delete this when you're done too. It's your config now! :)
 --]]
 
 -- Some of my own setup
-vim.g.python3_host_prog=vim.fn.expand("~/.virtualenvs/neovim/Scripts/python.exe")
+vim.g.python3_host_prog = vim.fn.expand '~/.virtualenvs/neovim/Scripts/python.exe'
 
 require 'custom.formats'
 
@@ -215,7 +215,7 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 
 -- Custom autocommands
 --  Activate Quarto in md files
-require 'custom.autocmds.quarto-md'
+-- require 'custom.autocmds.quarto-md'
 
 -- Highlight when yanking (copying) text
 --  Try it with `yap` in normal mode
@@ -262,13 +262,13 @@ require('lazy').setup({
       auto_cmd = false,
       override_editorconfig = false,
       on_tab_options = {
-        ["expandtab"] = false,
+        ['expandtab'] = false,
       },
       on_space_options = {
-        ["expandtab"] = true,
-        ["tabstop"] = "detected",
-        ["softtabstop"] = "detected",
-        ["shiftwidth"] = "detected",
+        ['expandtab'] = true,
+        ['tabstop'] = 'detected',
+        ['softtabstop'] = 'detected',
+        ['shiftwidth'] = 'detected',
       },
     },
     -- Uncomment to disable guess-indent
@@ -516,7 +516,7 @@ require('lazy').setup({
       {
         'j-hui/fidget.nvim',
         -- NOTE: Pin to a version to avoid break
-        tag = "v1.6.1",
+        tag = 'v1.6.1',
         opts = {
           progress = {
             -- suppress new messages in insert mode
@@ -677,8 +677,7 @@ require('lazy').setup({
             [vim.diagnostic.severity.HINT] = '󰌶 ',
           },
         } or {},
-        virtual_text =
-        {
+        virtual_text = {
           wrap = true,
           source = 'if_many',
           spacing = 2,
@@ -801,7 +800,7 @@ require('lazy').setup({
         else
           return {
             timeout_ms = 500,
-            lsp_format = 'fallback',
+            lsp_format = false,
           }
         end
       end,
@@ -911,7 +910,7 @@ require('lazy').setup({
       fuzzy = { implementation = 'lua' },
 
       -- Shows a signature help window while you type arguments for a function
-      signature = { enabled = false, },
+      signature = { enabled = false },
     },
   },
 
@@ -992,7 +991,7 @@ require('lazy').setup({
         --  If you are experiencing weird indenting issues, add the language to
         --  the list of additional_vim_regex_highlighting and disabled languages for indent.
         additional_vim_regex_highlighting = { 'ruby' },
-        disable = { "latex"}, -- disable highlight for some language
+        disable = { 'latex' }, -- disable highlight for some language
       },
       indent = { enable = true, disable = { 'ruby' } },
     },
